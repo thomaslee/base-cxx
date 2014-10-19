@@ -1,22 +1,25 @@
-AC_INIT([{{cookiecutter.project_name|lower}}],[0.0.1],[github@tomlee.co])
+AC_PREREQ([2.69])
+AC_INIT([{{cookiecutter.project_name|lower}}],[{{cookiecutter.version}}],[{{cookiecutter.email}}])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CANONICAL_SYSTEM
-AM_INIT_AUTOMAKE([1.9 foreign])
+AM_INIT_AUTOMAKE([-Wall 1.9 foreign])
+AM_MAINTAINER_MODE([enable])
 
 AC_CONFIG_MACRO_DIR([m4])
 
+LT_INIT
+AC_SUBST([LIBTOOL_DEPS])
+
 AC_PROG_CXX
-AC_PROG_LIBTOOL
+AC_PROG_CXX_C_O
 
 AX_CXX_COMPILE_STDCXX_11([noext],[mandatory])
+{% if cookiecutter.boost_features %}
 BOOST_REQUIRE([1.54])
-BOOST_SYSTEM
-BOOST_BIND
-BOOST_FORMAT
-BOOST_FUNCTION
-BOOST_UTILITY
-dnl BOOST_ASIO
-
+{% for feature in cookiecutter.boost_features.split(",") -%}
+BOOST_{{feature|upper}}
+{% endfor -%}
+{%- endif  %}
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
