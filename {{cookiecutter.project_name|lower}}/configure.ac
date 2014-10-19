@@ -20,6 +20,8 @@ BOOST_REQUIRE([1.54])
 BOOST_{{feature|upper}}
 {% endfor -%}
 {%- endif  %}
+AX_PTHREAD([],[AC_MSG_ERROR([pthread support not available])])
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
