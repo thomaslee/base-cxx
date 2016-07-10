@@ -1,0 +1,14 @@
+CMakeCache.txt
+CMakeFiles
+Testing
+Makefile
+CTestTestfile.cmake
+cmake_install.cmake
+/{{cookiecutter.project_name}}
+/test_{{cookiecutter.project_name}}
+*.o
+*.so
+*.a
+*.swp
+~*
+

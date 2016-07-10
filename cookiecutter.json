@@ -1,7 +1,13 @@
 {
     "project_name": "",
-    "version": "0.0.1",
-    "email": "github@tomlee.co",
-    "boost_features": ""
+    "project_type": ["executable", "library"],
+    "version": "0.0.1-dev",
+    "cxx_standard": ["11", "14", ""],
+    "source_extension": "cc",
+    "header_extension": "hh",
+    "header_guard_prefix": "{% if cookiecutter.project_type == 'library' %}{{cookiecutter.project_name|upper|replace('-', '_')}}_{% else %}{% endif %}",
+    "_copy_without_render": [
+        "vendor"
+    ]
 }
 
