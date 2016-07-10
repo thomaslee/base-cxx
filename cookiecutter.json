@@ -6,6 +6,7 @@
     "source_extension": "cc",
     "header_extension": "hh",
     "header_guard_prefix": "{% if cookiecutter.project_type == 'library' %}{{cookiecutter.project_name|upper|replace('-', '_')}}_{% else %}{% endif %}",
+    "version_control": ["git", "none"],
     "_copy_without_render": [
         "vendor"
     ]
